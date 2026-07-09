@@ -1,59 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Generador de paletas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colorfly Studio — Generador de paletas de colores</title>
+    <meta
+      name="description"
+      content="Generá paletas de colores aleatorias en HEX o HSL, copiá los códigos con un clic y guardá tus combinaciones favoritas."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="splash-screen" class="splash-screen">
+      <div class="logo-mark" aria-hidden="true">
+        <span class="logo-dot logo-dot--1"></span>
+        <span class="logo-dot logo-dot--2"></span>
+        <span class="logo-dot logo-dot--3"></span>
+      </div>
+      <h2 class="splash-title">Bienvenido a Colorfly Studio</h2>
+      <p class="splash-subtitle">Armá tu paleta perfecta en segundos</p>
+    </div>
 
-<body>
-    <!-- Header -->
     <header class="main-header">
-        <h1 class="main-title">Colorfly Studio</h1>
-        <h2 class="subtitle">- DISEÑA TU PALETA EN UN CLIC -</h2>
+      <div class="logo-mark" aria-hidden="true">
+        <span class="logo-dot logo-dot--1"></span>
+        <span class="logo-dot logo-dot--2"></span>
+        <span class="logo-dot logo-dot--3"></span>
+      </div>
+      <h1 class="main-title">Colorfly Studio</h1>
+      <p class="subtitle">Diseñá tu paleta en un clic</p>
     </header>
 
-    <!-- Controles y paleta -->
     <main class="main-content">
-
-    <div class="controls">
-        <label for="color-count">Cantidad de colores:</label>
-        <select id="color-count">
+      <section class="controls" aria-label="Configuración de la paleta">
+        <div class="control-group">
+          <label for="color-count">Cantidad de colores</label>
+          <select id="color-count">
             <option value="6">6</option>
             <option value="8">8</option>
             <option value="9">9</option>
-        </select>
+          </select>
+        </div>
 
-        <label for="color-type">Tipo de color:</label>
-        <select id="color-type">
+        <div class="control-group">
+          <label for="color-type">Formato</label>
+          <select id="color-type">
             <option value="hex">HEX</option>
             <option value="hsl">HSL</option>
-        </select>
+          </select>
+        </div>
 
-        <button id="generate-btn" class="primary-button">GENERAR PALETA</button>
+        <div class="control-group">
+          <label for="harmony-mode">Estilo</label>
+          <select id="harmony-mode">
+            <option value="random">Aleatorio</option>
+            <option value="analogous">Armonioso</option>
+            <option value="complementary">Alto contraste</option>
+            <option value="triad">Balanceado</option>
+          </select>
+        </div>
 
-        <div id="tooltip" class="tooltip">Paleta guardada✨</div>
-    </div>
+        <button id="generate-btn" class="primary-button" type="button">
+          Generar paleta
+        </button>
+      </section>
 
-    <div id="palette-container" class="palette-container"></div>
+      <p id="harmony-description" class="harmony-description">
+        Colores totalmente al azar, sin relación entre sí.
+      </p>
 
-    <div class="palette-actions">
-        <button id="savePalette">Guardar paleta</button>
-        <button id="clearPalettes">Limpiar paletas</button>
-    </div>
+      <div class="palette-name-wrap">
+        <p id="palette-name" class="palette-name"></p>
+      </div>
 
-    <div class="saved-palettes"></div>
+      <p id="color-hint" class="color-hint">
+        Hacé clic en un color para copiar su código
+      </p>
 
-    <div id="color-hint">⚠️ Presione el color para <br>
-    guardar el código </div>
-</main>    
+      <section
+        id="palette-container"
+        class="palette-container"
+        aria-label="Paleta generada"
+      ></section>
 
-    <!-- Footer -->
+      <div class="palette-actions">
+        <button id="savePalette" class="secondary-button" type="button">
+          Guardar paleta
+        </button>
+        <button id="clearPalettes" class="secondary-button" type="button">
+          Limpiar guardadas
+        </button>
+      </div>
+
+      <section
+        class="saved-palettes"
+        aria-label="Paletas guardadas"
+      ></section>
+    </main>
+
+    <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
+
     <footer class="main-footer">
-        <p>©2026 - Nadia Starna | Colorfly Studio</p>
+      <p>© 2026 — Nadia Starna · Colorfly Studio</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
