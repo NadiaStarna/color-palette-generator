@@ -10,7 +10,7 @@ Originalmente desarrollado como Proyecto Integrador del Módulo 1 (HTML, CSS y J
 
 ## 🚀 Demo
 
-🔗 https://nadiastarna.github.io/color-palette-generator/
+🔗 https://color-palette-generator-nine-delta.vercel.app/
 
 ## 🛠️ Tecnologías utilizadas
 
